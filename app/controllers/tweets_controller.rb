@@ -40,7 +40,7 @@ class TweetsController < ApplicationController
     end
     patch "/tweets/:id" do
       @tweet = Tweet.find(params[:id])
-       if params[:tweet][:content].strip != ""
+       if params[:content].strip != ""
         @tweet.update(content: params[:content])
         @tweet.save
         redirect "/tweets/#{@tweet.id}"
