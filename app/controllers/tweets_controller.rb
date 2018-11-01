@@ -14,7 +14,7 @@ class TweetsController < ApplicationController
       end
     end
      post "/tweets" do
-      tweet = Tweet.new(params[:tweet])
+      tweet = Tweet.new(content: params[:content])
       tweet.user = Helpers.current_user(session)
       if tweet.save
         redirect "/tweets"
@@ -57,3 +57,4 @@ class TweetsController < ApplicationController
     end
 
 end
+
